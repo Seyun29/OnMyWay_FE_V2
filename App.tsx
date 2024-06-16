@@ -28,30 +28,6 @@ function App(): React.JSX.Element {
     ) {
       UIManager.setLayoutAnimationEnabledExperimental(true);
     }
-
-    // FIXME: react-native-device-info 사용은 1.0.5부터 적용필요 => pod install (ios), re build (android) required
-    console.log('App Version:', DeviceInfo.getVersion());
-    console.log('Latest Version:', '1.0.5');
-    if (DeviceInfo.getVersion() < '1.0.5') {
-      //FIXME: set latest version here
-      //FIXME: see if it works practically
-      Alert.alert(
-        '새 버전이 출시되었습니다.',
-        '새로운 기능 적용을 위해\n앱을 업데이트 해주세요.',
-        [
-          {
-            text: '지금 업데이트',
-            onPress: () => {
-              if (Platform.OS === 'ios') Linking.openURL(OMW_APPSTORE_URL);
-              else Linking.openURL(OMW_PLAYSTORE_URL);
-            },
-          },
-          {
-            text: '취소',
-          },
-        ],
-      );
-    }
   }, []);
 
   return (
